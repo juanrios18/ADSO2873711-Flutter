@@ -1,3 +1,4 @@
+import 'package:curriculum_vitae_1_02/data/certificadosCursosData.dart';
 import 'package:curriculum_vitae_1_02/data/experienciaLboralData.dart';
 import 'package:flutter/material.dart';
 import 'data/FormacionFormalData.dart';
@@ -101,7 +102,61 @@ class _MenuState extends State<Menu> {
                     title: const Text('Certificaciones y Cursos'),
                     leading: const Icon(Icons.science),
                     trailing: const Icon(Icons.arrow_forward_rounded),
-                    onTap: () {},
+                    onTap: () {
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (context) {
+                          return Scaffold(
+                            appBar: AppBar(
+                              title: const Text('Certificados y Cursos'),
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.white,
+                            ),
+                            body: ListView.separated(
+                              itemCount: certificadosCursosLista.length,
+                              separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return const Divider();
+                              },
+                              itemBuilder: (BuildContext context, int index) {
+                                return ListTile(
+                                  title: Text(
+                                      certificadosCursosLista[index]['titulo']),
+                                  subtitle: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        certificadosCursosLista[index]
+                                            ['categoria'],
+                                        style: TextStyle(
+                                          color: certificadosCursosLista[index]
+                                              ['colorCategoria'],
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                          height: 5), // Espaciado entre textos
+                                      Text(
+                                        certificadosCursosLista[index]
+                                            ['descripcion'],
+                                        style: const TextStyle(fontSize: 14),
+                                      ),
+                                    ],
+                                  ),
+                                  leading: Text(
+                                    certificadosCursosLista[index]
+                                            ['anioRealizado']
+                                        .toString(),
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
                 ),
                 Card(
