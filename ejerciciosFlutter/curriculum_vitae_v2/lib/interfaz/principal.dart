@@ -12,7 +12,7 @@ class Principal extends StatefulWidget {
 class _PrincipalState extends State<Principal> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       title: 'Curriculum Vitae V2 - ADSO',
       debugShowCheckedModeBanner: false,
       home: HomePrincipal(),

@@ -24,8 +24,8 @@ class _HomePrincipalState extends State<HomePrincipal> {
       drawer: Drawer(
         child: ListView(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Center(
                 child: CircleAvatar(
                   radius: 100,
@@ -33,29 +33,29 @@ class _HomePrincipalState extends State<HomePrincipal> {
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               color: Colors.green, height: 2),
             ListTile(
-              title: Text('Home'),
-              leading: Icon(Icons.home),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title:const Text('Home'),
+              leading:const Icon(Icons.home),
+              trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: Text('Información Personal'),
-              leading: Icon(Icons.person),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title:const Text('Información Personal'),
+              leading:const Icon(Icons.person),
+              trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
-                Get.to(PerfilPersonal());
+                Get.to(const PerfilPersonal());
               },
             ),
             ListTile(
-              title: Text('Educación Formal'),
-              leading: Icon(Icons.school),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title:const Text('Educación Formal'),
+              leading:const Icon(Icons.school),
+              trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
                 Get.defaultDialog(
@@ -71,45 +71,45 @@ class _HomePrincipalState extends State<HomePrincipal> {
               },
             ),
             ListTile(
-              title: Text('Formación Continuada'),
-              leading: Icon(Icons.book),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title:const Text('Formación Continuada'),
+              leading:const Icon(Icons.book),
+              trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
                 Get.snackbar('Atención!', 'Esta seccón aún no está disponible',
                 backgroundColor: Colors.red[300],
                 colorText: Colors.white,
-                icon: Icon(Icons.dangerous));
+                icon:const Icon(Icons.dangerous));
               },
             ),
             ListTile(
-              title: Text('Publicaciones'),
-              leading: Icon(Icons.newspaper),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title:const Text('Publicaciones'),
+              leading:const Icon(Icons.newspaper),
+              trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: Text('Experiencia Laboral'),
-              leading: Icon(Icons.work_outline),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title:const Text('Experiencia Laboral'),
+              leading:const Icon(Icons.work_outline),
+              trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: Text('Referencias'),
-              leading: Icon(Icons.people),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title:const Text('Referencias'),
+              leading:const Icon(Icons.people),
+              trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: Text('Acerca de'),
-              leading: Icon(Icons.person),
-              trailing: Icon(Icons.arrow_forward_ios),
+              title:const Text('Acerca de'),
+              leading:const Icon(Icons.person),
+              trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
               },
