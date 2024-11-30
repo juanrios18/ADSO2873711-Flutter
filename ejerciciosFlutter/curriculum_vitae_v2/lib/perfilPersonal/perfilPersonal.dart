@@ -53,7 +53,7 @@ class _PerfilPersonalState extends State<PerfilPersonal> {
                         leading:const Icon(Icons.person),
                       ),
                      Divider(
-                        thickness: 1,       // Grosor de la línea (Por defecto viene de 0.5)
+                        thickness: 2,       // Grosor de la línea (Por defecto viene de 0.5)
                         height: 0,          // Espacio por encima y debajo del divisor (Por defecto viene de 16.0)
                         indent: 15,         // Espacio antes de la línea (hace que la línea empiece más a la derecha)(Ambos por defrecto es de 0.0 ocupa todo el ancho del contenedor)
                         endIndent: 20,      // Espacio después de la línea (hace que la línea termine más antes de llegar al borde)
@@ -66,7 +66,7 @@ class _PerfilPersonalState extends State<PerfilPersonal> {
                         leading:const Icon(Icons.phone_android),
                       ),
                       Divider(
-                        //thickness: 1,    
+                        thickness: 2,    
                         height: 0,        
                         indent: 15,   
                         endIndent: 20, 
@@ -79,7 +79,7 @@ class _PerfilPersonalState extends State<PerfilPersonal> {
                         leading:const Icon(Icons.location_on),
                       ),
                       Divider(
-                        //thickness: 1,    
+                        thickness: 2,    
                         height: 0,        
                         indent: 15,   
                         endIndent: 20, 

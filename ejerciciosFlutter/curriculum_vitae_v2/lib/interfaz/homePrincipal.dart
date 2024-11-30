@@ -1,4 +1,7 @@
+import 'package:curriculum_vitae_v2/experienciaLaboral/principalExperienciaLaboral.dart';
+import 'package:curriculum_vitae_v2/main.dart';
 import 'package:curriculum_vitae_v2/perfilPersonal/perfilPersonal.dart';
+import 'package:curriculum_vitae_v2/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,11 +15,12 @@ class HomePrincipal extends StatefulWidget {
 class _HomePrincipalState extends State<HomePrincipal> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Obx(() =>
+    Scaffold(
       appBar: AppBar(
-        title: const Center(child:Text('Curriculum Vitae V2 - ADSO')), 
-        backgroundColor: Colors.green,
-        foregroundColor: Colors.white,
+        title: Center(child:Text(miControlador.Titulo)), 
+        backgroundColor: Utils.primaryColor,
+        foregroundColor: Utils.foregroundColor,
       ),
       body: const Center(
         child: Image(image: NetworkImage("assets/images/logoFondo.png")),
@@ -33,14 +37,15 @@ class _HomePrincipalState extends State<HomePrincipal> {
                 ),
               ),
             ),
-            const Divider(
-              color: Colors.green, height: 2),
+            Divider(
+              color: Utils.primaryColor, height: 2),
             ListTile(
               title:const Text('Home'),
               leading:const Icon(Icons.home),
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
+                miControlador.cambiarTitulo("Curriculum Vitae V2 - ADSO");
               },
             ),
             ListTile(
@@ -48,7 +53,8 @@ class _HomePrincipalState extends State<HomePrincipal> {
               leading:const Icon(Icons.person),
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
-                Navigator.pop(context);
+                //Navigator.pop(context);
+                miControlador.cambiarTitulo("Información Personal");
                 Get.to(const PerfilPersonal());
               },
             ),
@@ -58,6 +64,7 @@ class _HomePrincipalState extends State<HomePrincipal> {
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
+                miControlador.cambiarTitulo("Educación Formal");
                 Get.defaultDialog(
                   title: 'Alerta',
                   middleText: 'Esta sección pronto será publicada...',
@@ -76,6 +83,7 @@ class _HomePrincipalState extends State<HomePrincipal> {
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
+                miControlador.cambiarTitulo("Formación Continuada");
                 Get.snackbar('Atención!', 'Esta seccón aún no está disponible',
                 backgroundColor: Colors.red[300],
                 colorText: Colors.white,
@@ -88,6 +96,7 @@ class _HomePrincipalState extends State<HomePrincipal> {
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
+                miControlador.cambiarTitulo("Publicaciones");
               },
             ),
             ListTile(
@@ -95,7 +104,9 @@ class _HomePrincipalState extends State<HomePrincipal> {
               leading:const Icon(Icons.work_outline),
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
-                Navigator.pop(context);
+                miControlador.cambiarTitulo("Experiencia Laboral");
+                //Navigator.pop(context);
+                Get.to(const PrincipalExperienciaLaboral());
               },
             ),
             ListTile(
@@ -104,6 +115,7 @@ class _HomePrincipalState extends State<HomePrincipal> {
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
+                miControlador.cambiarTitulo("Referencias");
               },
             ),
             ListTile(
@@ -112,11 +124,12 @@ class _HomePrincipalState extends State<HomePrincipal> {
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
                 Navigator.pop(context);
+                miControlador.cambiarTitulo("Acerca de");
               },
             ),
           ],
         ),
       ),
-    );
+    ));
   }
 }
