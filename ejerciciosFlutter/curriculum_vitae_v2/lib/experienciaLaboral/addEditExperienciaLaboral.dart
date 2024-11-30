@@ -20,7 +20,10 @@ void limpiarCampos() {
 }
 
 showModalAddEditExperiencia(context){
-  showModalBottomSheet(context: context, builder: (context){
+  showModalBottomSheet(
+    isScrollControlled: false,
+    context: context, 
+    builder: (context){
     return Scaffold(
       appBar: AppBar(
         title:const Center(child: Text("Ingresar Experiencia")),

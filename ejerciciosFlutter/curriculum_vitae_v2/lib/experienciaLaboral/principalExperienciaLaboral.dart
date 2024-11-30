@@ -1,4 +1,5 @@
 import 'package:curriculum_vitae_v2/experienciaLaboral/addEditExperienciaLaboral.dart';
+import 'package:curriculum_vitae_v2/experienciaLaboral/viewExperienciaLaboral.dart';
 import 'package:curriculum_vitae_v2/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -53,6 +54,21 @@ class _PrincipalExperienciaLaboralState extends State<PrincipalExperienciaLabora
                   ),
                 ],
               ),
+              trailing:
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(onPressed: (){
+                        // Lógica para visualizar el detalle de una experiencia laboral.
+                        viewExperienciaLaboral(context, miControlador.ListaExperienciaLaboral[index]);
+                      }, icon:const Icon(Icons.search)),
+                      IconButton(onPressed: (){
+
+                      }, icon:const Icon(Icons.edit)),
+                      IconButton(onPressed: (){
+                      }, icon:const Icon(Icons.delete)),
+                    ],
+                  ),
             ),
           );
         },
