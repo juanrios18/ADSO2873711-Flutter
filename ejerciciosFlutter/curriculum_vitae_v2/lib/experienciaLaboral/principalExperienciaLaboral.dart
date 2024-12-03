@@ -27,7 +27,8 @@ class _PrincipalExperienciaLaboralState extends State<PrincipalExperienciaLabora
         foregroundColor: Utils.foregroundColor,
         child:const Icon(Icons.add),
         onPressed: (){
-          showModalAddEditExperiencia(context);
+          // Lógica para agregar una experiencia
+          showModalAddEditExperiencia(context, "new", null, null);
       }),
       body: ListView.builder(
         itemCount: miControlador.ListaExperienciaLaboral.length,
@@ -61,12 +62,25 @@ class _PrincipalExperienciaLaboralState extends State<PrincipalExperienciaLabora
                       IconButton(onPressed: (){
                         // Lógica para visualizar el detalle de una experiencia laboral.
                         viewExperienciaLaboral(context, miControlador.ListaExperienciaLaboral[index]);
-                      }, icon:const Icon(Icons.search)),
+                      }, icon:const Icon(Icons.search,color: Colors.black,)),
                       IconButton(onPressed: (){
+                        // Lógica para editar una experiencia laboral.
+                        showModalAddEditExperiencia(context, "edit", miControlador.ListaExperienciaLaboral[index], index);
+                      }, icon: Icon(Icons.edit, color: Colors.blue[800],)),
+                      IconButton(onPressed: (){
+                        // Lógica para eliminar un elemento de una experiencia laboral.
+                        Get.defaultDialog(
+                          title: "Atención!!!",
+                          middleText: "Esta seguro de eliminar el registro con la experiencia como ${miControlador.ListaExperienciaLaboral[index]["titulo"]}.",
+                          onCancel: () {
 
-                      }, icon:const Icon(Icons.edit)),
-                      IconButton(onPressed: (){
-                      }, icon:const Icon(Icons.delete)),
+                          },
+                          onConfirm: () {
+                            miControlador.removeItemListaExperienciaLaboral(index);
+                            Get.back();
+                          }
+                        );
+                      }, icon: Icon(Icons.delete, color: Colors.red[800],)),
                     ],
                   ),
             ),

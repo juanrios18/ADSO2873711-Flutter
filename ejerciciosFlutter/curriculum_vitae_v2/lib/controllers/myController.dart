@@ -14,6 +14,13 @@ class Mycontroller extends GetxController {
   void cambiarListaExperienciaLaboral(List item){
     _listaExperienciLaboral.value = item;
   }
+  void removeItemListaExperienciaLaboral(int index) {
+    _listaExperienciLaboral.removeAt(index);
+  }
+
+  void editItemListaExperienciaLaboral(int index, Map item) {
+    _listaExperienciLaboral[index] = item;
+  }
 
   String get Titulo => _titulo.value;
   List get ListaExperienciaLaboral => _listaExperienciLaboral.value;

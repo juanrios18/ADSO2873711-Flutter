@@ -19,38 +19,64 @@ void limpiarCampos() {
   categoriaController.clear();
 }
 
-showModalAddEditExperiencia(context){
+showModalAddEditExperiencia(context, String opcionAddEdit, dynamic elementoActual, dynamic index){
+  limpiarCampos();
+  if(opcionAddEdit == "edit"){
+    tituloController.text = elementoActual["titulo"];
+    fechaInicioController.text = elementoActual["fechaInicio"];
+    fechaFinController.text = elementoActual["fechaFin"];
+    funcionesController.text = elementoActual["funciones"];
+    categoriaController.text = elementoActual["categoria"];
+  }
   showModalBottomSheet(
     isScrollControlled: false,
     context: context, 
     builder: (context){
     return Scaffold(
       appBar: AppBar(
-        title:const Center(child: Text("Ingresar Experiencia")),
+        title:Center(child: Text(opcionAddEdit=="new"?"Ingresar Experiencia":"Editar Experiencia")),
         backgroundColor: Utils.primaryColor,
         foregroundColor: Utils.foregroundColor,
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Utils.primaryColor,
         foregroundColor: Utils.foregroundColor,
-        child:const Icon(Icons.save),
+        child:opcionAddEdit=="new"?const Icon(Icons.save):const Icon(Icons.edit),
         onPressed: () {
           // Se ejecuta cuando se guarda un elemento de experiencia
-          Map<String,dynamic> newItem = {
-            //"id": 9,
-            "titulo": tituloController.text,
-            "fechaInicio": fechaInicioController.text,
-            "fechaFin": fechaFinController.text,
-            "funciones": funcionesController.text,
-            "categoria": categoriaController.text,
-            "colorCategoria": Colors.blue
-          };
-          miControlador.addItemListaExperienciaLaboral(newItem);
-          Get.back();
-          limpiarCampos();
-          Get.snackbar("Atención", "Experiencia agregada con éxito!!!",
-          backgroundColor: Colors.green[300],
-          colorText: Colors.black);
+          if(opcionAddEdit == "new"){
+            Map<String,dynamic> newItem = {
+              //"id": 9,
+              "titulo": tituloController.text,
+              "fechaInicio": fechaInicioController.text,
+              "fechaFin": fechaFinController.text,
+              "funciones": funcionesController.text,
+              "categoria": categoriaController.text,
+              "colorCategoria": Colors.blue
+            };
+            miControlador.addItemListaExperienciaLaboral(newItem);
+            Get.back();
+            limpiarCampos();
+            Get.snackbar("Atención", "Experiencia agregada con éxito!!!",
+            backgroundColor: Colors.green[300],
+            colorText: Colors.black);
+          } else {
+            // Lógica para editar registro de experiencia.
+            Map<String,dynamic> elementEdit = {
+              "titulo": tituloController.text,
+              "fechaInicio": fechaInicioController.text,
+              "fechaFin": fechaFinController.text,
+              "funciones": funcionesController.text,
+              "categoria": categoriaController.text,
+              "colorCategoria": Colors.blue,
+            };
+            miControlador.editItemListaExperienciaLaboral(index, elementEdit);
+            Get.back();
+            limpiarCampos();
+            Get.snackbar("Atención", "Experiencia editada con éxito!!!",
+            backgroundColor: Colors.green[300],
+            colorText: Colors.black);
+          }
       }),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

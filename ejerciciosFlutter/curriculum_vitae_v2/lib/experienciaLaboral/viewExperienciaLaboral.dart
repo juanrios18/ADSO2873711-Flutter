@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/utils.dart';
 
-viewExperienciaLaboral(context, elementoActual){
+viewExperienciaLaboral(BuildContext context,Map elementoActual){
   showModalBottomSheet(
     isScrollControlled: true,
     context: context, 
