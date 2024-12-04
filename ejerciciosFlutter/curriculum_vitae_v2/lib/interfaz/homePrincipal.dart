@@ -1,9 +1,13 @@
 import 'package:curriculum_vitae_v2/experienciaLaboral/principalExperienciaLaboral.dart';
+import 'package:curriculum_vitae_v2/formacionContinuada/principalFormacionContinuada.dart';
 import 'package:curriculum_vitae_v2/main.dart';
 import 'package:curriculum_vitae_v2/perfilPersonal/perfilPersonal.dart';
 import 'package:curriculum_vitae_v2/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../educacionFormal/principalEducacionFormal.dart';
+import '../publicaciones/principalPublicaciones.dart';
 
 class HomePrincipal extends StatefulWidget {
   const HomePrincipal({super.key});
@@ -63,18 +67,9 @@ class _HomePrincipalState extends State<HomePrincipal> {
               leading:const Icon(Icons.school),
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
-                Navigator.pop(context);
+                //Navigator.pop(context);
                 miControlador.cambiarTitulo("Educación Formal");
-                Get.defaultDialog(
-                  title: 'Alerta',
-                  middleText: 'Esta sección pronto será publicada...',
-                  onConfirm: () {
-
-                  },
-                  onCancel:() {
-                    
-                  },
-                );
+                Get.to(const PrincipalEducacionFormal());
               },
             ),
             ListTile(
@@ -82,12 +77,9 @@ class _HomePrincipalState extends State<HomePrincipal> {
               leading:const Icon(Icons.book),
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
-                Navigator.pop(context);
+                //Navigator.pop(context);
                 miControlador.cambiarTitulo("Formación Continuada");
-                Get.snackbar('Atención!', 'Esta seccón aún no está disponible',
-                backgroundColor: Colors.red[300],
-                colorText: Colors.white,
-                icon:const Icon(Icons.dangerous));
+                Get.to(const PrincipalFormacionContinuada());
               },
             ),
             ListTile(
@@ -95,8 +87,9 @@ class _HomePrincipalState extends State<HomePrincipal> {
               leading:const Icon(Icons.newspaper),
               trailing:const Icon(Icons.arrow_forward_ios),
               onTap: (){
-                Navigator.pop(context);
+                //Navigator.pop(context);
                 miControlador.cambiarTitulo("Publicaciones");
+                Get.to(const PrincipalPublicaciones());
               },
             ),
             ListTile(
